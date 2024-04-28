@@ -1,6 +1,7 @@
 const config = {
     db:{
-        host:"localhost",
+        host:"mysql",
+        port:"3306",
         user:"root",
         password:"password",
         database : "tpVirtualisation",

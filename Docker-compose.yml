@@ -2,49 +2,18 @@ version: '3'
 
 networks:
   backend:
-    external: true
 
 services:
-
-  mysql:
-    image: mysql
-    ports:
-      - "3306:3306"
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-    volumes:
-      - ./DB:/var/lib/mysql
-    networks:
-      - backend
-
-  express:
-    build: ./BackEnd
-    depends_on:
-      - mysql
-    environment:
-      MYSQL_HOST: mysql
-      MYSQL_USER: root
-      MYSQL_PASSWORD: password
-    networks:
-      - backend
-
-  adminer:
-    image: adminer
-    ports:
-      - "8080:8080"
-    networks:
-      - backend
 
   localstack:
     image: localstack/localstack
     environment:
       - SERVICES=s3
-      - ACCESS_KEY_ID=key_aws1
+      - AWS_ACCESS_KEY_ID=key_aws1
       - AWS_SECRET_ACCESS_KEY=key_aws1
-      - DEFAULT_REGION=eu-central-1
+      - AWS_DEFAULT_REGION=eu-central-1
       - S3_BUCKET=mes-fichiers
-      - TMPDIR=/s3Data/data
-      - PLUGIN_BASE_DIR=/plugins
+      - TMP_DIR=/s3Data/data
     ports:
       - "4566:4566"
     volumes:
@@ -55,5 +24,38 @@ services:
     networks:
       - backend
 
+  mysql:
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      DATABASE : tpvirtualisation
+    volumes:
+      - ./DB/Data:/var/lib/mysql
+      - ./DB/Init_DB/init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    networks:
+      - backend
+
+  adminer:
+    image: adminer
+    ports:
+      - "8080:8080"
+    networks:
+      - backend
+
+  express:
+    build: ./BackEnd
+    depends_on:
+      - mysql
+    ports:
+      - "3000:3000"
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: root
+      MYSQL_PASSWORD: password
+    networks:
+      - backend
+      
 volumes:
   mysql_data:
