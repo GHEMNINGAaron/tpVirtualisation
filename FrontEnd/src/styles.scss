@@ -1,0 +1,213 @@
+/* You can add global styles to this file, and also import other style files */
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+html,body{
+   // background-image: url('http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg');
+    background-image: url('/assets/cloud.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    font-family: 'Numans', sans-serif;
+ }
+ 
+
+    header {
+        width: 100%;
+        //background: url(https://wallpaper.wiki/wp-content/uploads/2017/05/wallpaper.wiki-Beautiful-Full-HD-Wallpaper-Download-Free-PIC-WPE0010098.jpg) no-repeat 50% 50%;
+        background-size: cover;
+    }
+
+  nav {
+    position: fixed;
+    width: 100%;
+    line-height: 60px;
+    }
+
+nav ul {
+    line-height: 60px;
+    list-style: none;
+    background: rgba(0, 0, 0, 0);
+    overflow: hidden;
+    color: #fff;
+    padding: 0;
+    text-align: right;
+    margin: 0;
+    padding-right: 40px;
+    transition: 1s;
+}
+
+nav.black ul {
+    background: #000;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 16px 40px;;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 16px;
+}
+    
+    .container{
+    height: 100%;
+    align-content: center;
+    }
+    
+    .card{
+    height: 370px;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 400px;
+    background-color: rgba(0,0,0,0.5) !important;
+    }
+   
+    
+//     .card-inscription{
+//       height: 400px;
+//       margin-top: auto;
+//       margin-bottom: auto;
+//       width: 500px;
+//       background-color: rgba(0,0,0,0.5) !important;
+//       }
+
+    .social_icon span{
+    font-size: 25px;
+    margin-top: 30px;
+    margin-left: 10px;
+    color: #FFC312;
+    }
+    .btn {
+      margin-left: 75%;
+      border: none;
+      margin-top: 2px;
+      border-radius: 5px;
+      color: white;
+      font-size: 13px;
+      display: inline-block;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .custom-file-upload{
+      border: none;
+      margin-top: 10px;
+      border-radius: 5px;
+      background: linear-gradient(#FFC312, #fbd152);
+      color: white;
+      font-size: 13px;
+      display: inline-block;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  cursor: pointer;
+    }
+    
+    .social_icon span:hover{
+    color: white;
+    cursor: pointer;
+    }
+    
+    .card-header h3{
+    color: white;
+    }
+    
+    .social_icon{
+    position: absolute;
+    right: 20px;
+    top: -45px;
+    }
+    
+    .input-group-prepend span{
+    width: 40px;
+    background-color: #FFC312;
+    color: black;
+    border:0 !important;
+    }
+    
+    input:focus{
+    outline: 0 0 0 0  !important;
+    box-shadow: 0 0 0 0 !important;
+    
+    }
+    
+    .remember{
+    color: white;
+    }
+    
+    .remember input
+    {
+    width: 20px;
+    height: 20px;
+    margin-left: 15px;
+    margin-right: 5px;
+    }
+    
+    .login_btn{
+    color: black;
+    background-color: #FFC312;
+    width: 100px;
+    }
+    
+    .login_btn:hover{
+    color: black;
+    background-color: white;
+    }
+    
+    .links{
+    color: white;
+    }
+    
+    .links a{
+    margin-left: 4px;
+    }
+
+    .menu-icon {
+        line-height: 60px;
+        width: 100%;
+        background: #000;
+        text-align: right;
+        box-sizing: border-box;
+        padding: 15px 24px;
+        cursor: pointer;
+        color: #fff;
+        display: none;
+  }
+  
+  @media(max-width: 786px) {
+  
+        .logo {
+              position: fixed;
+              top: 0;
+              margin-top: 16px;
+        }
+  
+        nav ul {
+              max-height: 0px;
+              background: #000;
+        }
+  
+        nav.black ul {
+              background: #000;
+        }
+  
+        .showing {
+              max-height: 34em;
+        }
+  
+        nav ul li {
+              box-sizing: border-box;
+              width: 100%;
+              padding: 24px;
+              text-align: center;
+        }
+  
+        .menu-icon {
+              display: block;
+        }
+  
+  }
