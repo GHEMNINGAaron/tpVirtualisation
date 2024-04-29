@@ -1,4 +1,6 @@
+#Backend
 /BackEnd/node_modules
+/BackEnd/uploads
 
 /DB/Data
 
