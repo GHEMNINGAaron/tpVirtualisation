@@ -1,0 +1,72 @@
+<div class="container">
+	<div class="d-flex justify-content-center h-100">
+		<div class="card">
+
+			<div class="card-header">
+				<h3>S'inscrire</h3>
+				<div class="d-flex justify-content-end social_icon">
+					<span><i class="bi bi-facebook"></i></span>
+					<span><i class="bi bi-google"></i></span>
+					<span><i class="bi bi-twitter"></i></span>
+				</div>
+			</div>
+			<div class="card-body">
+				<form>
+					<div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="nom">
+						
+					</div>
+                    <br>
+                    <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="prenom">
+						
+					</div>
+                    <br>
+                    <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="Entrez votre email">
+						
+					</div>
+                    <br>
+                    <div class="input-group form-group">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="bi bi-key"></i></span>
+						</div>
+						<input type="text" class="form-control" placeholder="Entrez votre mot de passe">
+						
+					</div>
+                    <br>
+					<div class="input-group form-group ">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><i class="bi bi-key"></i></span>
+						</div>
+						<input type="password" class="form-control" placeholder="Confirmer votre mot de passe">
+					</div>
+					<br>
+                    <label id="download" class="form-group custom-file-upload">
+                        <input type="file" multiple id="file"  formControlName="file" /><i class="ti-download"></i>
+                      </label>
+                      <br>
+					<div class="row align-items-center remember">
+						<input type="checkbox">Se souvenir de moi
+					</div>
+                    <input  type="submit"  class="btn btn-warning" value="Envoyer">
+					
+				</form>
+			</div>
+			<div class="card-footer">
+				<div class="d-flex justify-content-center links">
+					Vous avez déjà un compte?<a [routerLink]="['/login_page']" >Se connecter</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
