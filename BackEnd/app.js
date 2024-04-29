@@ -1,8 +1,7 @@
 const express = require("express")
 const app = express()
 const cors = require('cors');
-const aws = require('./configurations/conf.s3')
-
+const session  = require('express-session')
 const port = 3000
 const apiRoute = require('./routes/api.routes')
 
@@ -10,23 +9,12 @@ app.use(cors())
 
 app.use(express.json())
 
-app.use(async (req, res, next) => {
-    try {
-        // Vérifier si le bucket existe déjà
-        await aws.s3.headBucket({ Bucket: 'mes-fichiers' }).promise();
-        console.log('Bucket S3 existe déjà.');
-    } catch (error) {
-        if (error.statusCode === 404) {
-            // Le bucket n'existe pas, le créer
-            await aws.s3.createBucket({ Bucket: 'mes-fichiers' }).promise();
-            console.log('Bucket S3 créé avec succès.');
-        } else {
-            // Une erreur s'est produite lors de la vérification du bucket
-            console.error('Erreur lors de la vérification du bucket S3:', error);
-        }
-    }
-    next();
-});
+
+app.use(session({
+    secret: 'votre_secret',
+    resave: false,
+    saveUninitialized: true
+}));
 
 app.use(
     express.urlencoded({
