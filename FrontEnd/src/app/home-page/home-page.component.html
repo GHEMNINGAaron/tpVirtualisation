@@ -1,22 +1,23 @@
 <div class="container">
-	<div class="d-flex justify-content-center h-100">
-		<div class="card">
-
-			<div class="card-header">
-				<h3>Bienvenue sur notre projet de virtualisation.</h3>
-				
-			</div>
-			<div class="card-body">
-				<img src="/assets/cartoon.png" alt="" srcset="">
-             
-                 <input  type="submit"  class="btn btn-warning" value="Commencer">
-             
-			</div>
-			<div class="card-footer">
-				<div class="d-flex justify-content-center links">
-					Merci!!
-				</div>
-			</div>
-		</div>
-	</div>
+  <div class="d-flex justify-content-center h-100">
+    <div class="card">
+      <div class="card-header">
+        <h3 class="text-center">Bienvenue sur notre projet de virtualisation.</h3>
+      </div>
+      <div class="card-body">
+        <div class="profile">
+          <img [src]="utilisateur.photo" alt="Photo de profil">
+          <h2>{{ utilisateur.nom }} {{ utilisateur.prenom }}</h2>
+          <p>Email : {{ utilisateur.mail }}</p>
+          <p>Mot de passe : ********</p>
+          <a [href]="utilisateur.cv" download="Mon_CV.pdf" class="btn btn-primary">Télécharger CV</a>
+        </div>
+      </div>
+      <div class="card-footer">
+        <div class="d-flex justify-content-center">
+          <p>Merci!!</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

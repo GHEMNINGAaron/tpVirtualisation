@@ -15,23 +15,24 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="bi bi-envelope-fill"></i></span>
 						</div>
-						<input type="text" class="form-control" placeholder="Entrez votre mail">
-						
+						<input type="text" class="form-control" placeholder="Entrez votre mail" [(ngModel)] = "user.email" name="email">
+
 					</div
 					><br>
 					<div class="input-group form-group ">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="bi bi-key"></i></span>
 						</div>
-						<input type="password" class="form-control" placeholder="Entrez votre mot de passe">
+						<input type="password" class="form-control" placeholder="Entrez votre mot de passe" [(ngModel)] = "user.password" name="password">
 					</div>
 					<br>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Se souvenir de moi
 					</div>
-					<input  type="submit"  class="btn btn-warning" value="Envoyer"><i class="bi bi-send-fill"></i>
-					
-					
+					<input  type="submit"  class="btn btn-warning" value="Envoyer" (click)="connexion()"><i class="bi bi-send-fill"></i>
+          @if (!connexionDown) {
+            <p style="font-size: small; text-align:center; color : red" > Email ou mot de passe incorect</p>
+          }
 				</form>
 			</div>
 			<div class="card-footer">

@@ -1,0 +1,36 @@
+# FROM node:latest AS build
+# RUN npm install -g @angular/cli
+
+# WORKDIR /app
+# COPY . .
+
+# RUN npm install
+# RUN npm run build
+
+# FROM httpd:alpine3.15
+
+# WORKDIR /usr/local/apache2/htdocs
+
+# COPY --from=build /app/dist/api_hote/browser .
+
+# EXPOSE 80
+# CMD ["httpd", "-D", "FOREGROUND"]
+
+
+FROM node:latest
+
+RUN mkdir /front
+
+WORKDIR /front
+
+COPY . .
+COPY package*.json .
+
+RUN npm install -g @angular/cli
+
+RUN npm install --force
+
+EXPOSE 4200
+
+CMD ["ng", "serve", "--host", "0.0.0.0", "--port", "4200"]
+

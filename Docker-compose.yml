@@ -2,6 +2,9 @@ version: '3'
 
 networks:
   backend:
+    ipam:
+      config:
+        - subnet: 172.28.0.0/16
 
 services:
 
@@ -56,6 +59,14 @@ services:
       MYSQL_PASSWORD: password
     networks:
       - backend
+      
+  angular:
+    build: ./FrontEnd
+    ports:
+      - 4200:4200
+    networks:
+      - backend
+
       
 volumes:
   mysql_data:
