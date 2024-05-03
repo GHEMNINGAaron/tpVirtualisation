@@ -10,7 +10,7 @@ export class AuthServiceService {
 
   constructor(private http: HttpClient) { }
 
-  baseUrl: String = "http://express:3000/apiauth/"
+  baseUrl: String = "http://localhost:3000/apiauth/"
 
   connexion(userCredentials: any): Observable<any> {
     let url = this.baseUrl + "connexion"
