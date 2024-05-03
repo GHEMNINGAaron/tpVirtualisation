@@ -28,19 +28,19 @@ router.post('/inscription', upload.fields([{ name: 'cv' }, { name: 'photo' }]), 
         res.status(200).json({ message: 'Inscription réussie', user: result });
     } catch (error) {
         console.error("Erreur lors de l'inscription : ", error)
-        res.status(400).json({ message: 'Échec de l\'inscription', error: error.message });
+        res.status(400).json({ message: 'Échec de l\'inscription', error: error });
     }
 })
 
 router.post('/connexion', async function (req, res, next) {
-    const { mail, password } = req.body;
+    const { email, password } = req.body;
     console.log(req.body)
-    const result = await apiServ.connexion(mail, password);
+    const result = await apiServ.connexion(email, password);
     if (result.success) {
         req.session.isAuthenticated = true;
         res.status(200).json({ message: 'Connexion réussie', user: result.userInfo });
     } else {
-        res.status(400).json({ message: 'Échec de la connexion', error: error.message });
+        res.status(400).json({ message: 'Échec de la connexion', error: result.message });
     }
 })
 
@@ -51,7 +51,7 @@ router.post('/resetPassword', async function (req, res, next) {
     if (result.success) {
         res.status(200).json({ message: result.message, user: result.userInfo });
     } else {
-        res.status(400).json({ message: 'Échec de la reenitialisation', error: error.message });
+        res.status(400).json({ message: 'Échec de la reenitialisation', error: result.message });
     }
 })
 

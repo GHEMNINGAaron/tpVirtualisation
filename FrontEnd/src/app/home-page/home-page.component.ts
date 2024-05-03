@@ -10,4 +10,13 @@ import { RouterLink } from '@angular/router';
 })
 export class HomePageComponent {
 
+  constructor () {}
+
+  utilisateur : any
+  ngOnInit(){
+    let data = localStorage.getItem("user")
+    if(data) {
+      this.utilisateur = JSON.parse(data)
+    }
+  }
 }
